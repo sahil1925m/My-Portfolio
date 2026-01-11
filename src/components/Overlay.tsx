@@ -1,10 +1,15 @@
+'use client';
+
 import { TypingAnimation } from '@/components/ui/typing-animation';
 import RevealText from '@/components/RevealText';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import { useLoading } from '@/context/LoadingContext';
 
 export default function Overlay() {
     const targetRef = useRef(null);
+    const { isLoading } = useLoading();
+
     const { scrollYProgress } = useScroll({
         target: targetRef,
         offset: ['start start', 'end start'],
@@ -28,16 +33,24 @@ export default function Overlay() {
                 style={{ y: y1, opacity: opacity1 }}
                 className="sticky top-0 h-screen flex flex-col justify-center items-start pl-6 md:pl-32"
             >
-                <TypingAnimation
-                    text="SAHIL"
-                    className="text-5xl md:text-9xl font-bold tracking-tighter text-white mix-blend-difference"
-                    duration={150}
-                />
-                <TypingAnimation
-                    text="CREATIVE DEVELOPER"
-                    className="mt-4 text-xl md:text-2xl text-white/70 font-light tracking-widest"
-                    duration={100}
-                />
+                {!isLoading && (
+                    <>
+                        <TypingAnimation
+                            text="SAHIL"
+                            className="text-5xl md:text-9xl font-bold tracking-tighter text-white mix-blend-difference"
+                            duration={150}
+                            delay={300}
+                        />
+                        <TypingAnimation
+                            text="CREATIVE DEVELOPER"
+                            className="mt-4 text-xl md:text-2xl text-white/70 font-light tracking-widest"
+                            duration={80}
+                            delay={1200}
+                            loop={true}
+                            loopDelay={3000}
+                        />
+                    </>
+                )}
             </motion.div>
 
             {/* SECTION 2: SKILLS */}
