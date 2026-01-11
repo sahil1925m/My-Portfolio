@@ -15,10 +15,10 @@ export default function Overlay() {
     const opacity1 = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
     const y2 = useTransform(scrollYProgress, [0.2, 0.5], [100, -100]);
-    const opacity2 = useTransform(scrollYProgress, [0.25, 0.35, 0.45], [0, 1, 0]);
+    const opacity2 = useTransform(scrollYProgress, [0.25, 0.35, 0.5], [0, 1, 0]);
 
     const y3 = useTransform(scrollYProgress, [0.5, 0.8], [100, 0]);
-    const opacity3 = useTransform(scrollYProgress, [0.55, 0.65, 0.9], [0, 1, 1]);
+    const opacity3 = useTransform(scrollYProgress, [0.5, 0.65, 0.9], [0, 1, 1]);
 
     return (
         <div ref={targetRef} className="absolute top-0 left-0 w-full h-[500vh] pointer-events-none z-10">
@@ -41,7 +41,7 @@ export default function Overlay() {
                 style={{ y: y2, opacity: opacity2 }}
                 className="sticky top-0 h-screen flex items-center justify-end px-6 md:px-32"
             >
-                <div className="max-w-xl text-right">
+                <div className="max-w-xl text-right p-6 rounded-2xl bg-black/40 backdrop-blur-md md:bg-transparent md:backdrop-blur-none border border-white/10 md:border-none">
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
                         Architecting Intelligence.
                     </h2>
@@ -58,7 +58,7 @@ export default function Overlay() {
                 style={{ y: y3, opacity: opacity3 }}
                 className="sticky top-0 h-screen flex items-center justify-start px-6 md:px-32"
             >
-                <div className="text-left">
+                <div className="text-left p-6 rounded-2xl bg-black/40 backdrop-blur-md md:bg-transparent md:backdrop-blur-none border border-white/10 md:border-none">
                     <h2 className="text-4xl md:text-6xl font-bold text-white mb-2">
                         The Work
                     </h2>
