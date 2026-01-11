@@ -1,5 +1,5 @@
-'use client';
-
+import { TypingAnimation } from '@/components/ui/typing-animation';
+import RevealText from '@/components/RevealText';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 
@@ -28,12 +28,16 @@ export default function Overlay() {
                 style={{ y: y1, opacity: opacity1 }}
                 className="sticky top-0 h-screen flex flex-col justify-center items-start pl-6 md:pl-32"
             >
-                <h1 className="text-5xl md:text-9xl font-bold tracking-tighter text-white mix-blend-difference">
-                    SAHIL
-                </h1>
-                <p className="mt-4 text-xl md:text-2xl text-white/70 font-light tracking-widest">
-                    CREATIVE DEVELOPER
-                </p>
+                <TypingAnimation
+                    text="SAHIL"
+                    className="text-5xl md:text-9xl font-bold tracking-tighter text-white mix-blend-difference"
+                    duration={150}
+                />
+                <TypingAnimation
+                    text="CREATIVE DEVELOPER"
+                    className="mt-4 text-xl md:text-2xl text-white/70 font-light tracking-widest"
+                    duration={100}
+                />
             </motion.div>
 
             {/* SECTION 2: SKILLS */}
@@ -42,14 +46,18 @@ export default function Overlay() {
                 className="sticky top-0 h-screen flex items-center justify-end px-6 md:px-32"
             >
                 <div className="max-w-xl text-right p-6 rounded-2xl bg-black/40 backdrop-blur-md md:bg-transparent md:backdrop-blur-none border border-white/10 md:border-none">
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                        Architecting Intelligence.
-                    </h2>
-                    <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-                        Specializing in <span className="text-blue-400">Java Spring Boot</span> backends
-                        fused with modern AI integrations. Bridging the gap between
-                        Theory of Computation and real-world application.
-                    </p>
+                    <RevealText direction="up">
+                        <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+                            Architecting Intelligence.
+                        </h2>
+                    </RevealText>
+                    <RevealText direction="up" delay={200}>
+                        <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+                            Specializing in <span className="text-blue-400">Java Spring Boot</span> backends
+                            fused with modern AI integrations. Bridging the gap between
+                            Theory of Computation and real-world application.
+                        </p>
+                    </RevealText>
                 </div>
             </motion.div>
 
@@ -59,15 +67,18 @@ export default function Overlay() {
                 className="sticky top-0 h-screen flex items-center justify-start px-6 md:px-32"
             >
                 <div className="text-left p-6 rounded-2xl bg-black/40 backdrop-blur-md md:bg-transparent md:backdrop-blur-none border border-white/10 md:border-none">
-                    <h2 className="text-4xl md:text-6xl font-bold text-white mb-2">
-                        The Work
-                    </h2>
-                    <p className="text-2xl text-gray-400">
-                        AstroQuest. F.A.C.E.S. DayStream.
-                    </p>
+                    <RevealText direction="up">
+                        <h2 className="text-4xl md:text-6xl font-bold text-white mb-2">
+                            The Work
+                        </h2>
+                    </RevealText>
+                    <RevealText direction="up" delay={200}>
+                        <p className="text-2xl text-gray-400">
+                            AstroQuest. F.A.C.E.S. DayStream.
+                        </p>
+                    </RevealText>
                 </div>
             </motion.div>
-
         </div>
     );
 }

@@ -16,7 +16,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} bg-[#0a0a0a] text-white overflow-x-hidden antialiased`}>
+      <body
+        className={`${inter.className} bg-[#0a0a0a] text-white overflow-x-hidden antialiased`}
+        suppressHydrationWarning
+      >
         {children}
       </body>
     </html>
