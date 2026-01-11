@@ -62,7 +62,7 @@ export default function MegaFooter() {
     };
 
     return (
-        <footer id="contact" className="relative min-h-[80vh] w-full bg-[#050505] flex flex-col items-center justify-center px-6 md:px-20 overflow-hidden">
+        <footer id="contact" className="relative min-h-[90vh] w-full bg-[#050505] flex flex-col items-center justify-center px-6 md:px-20 pb-24 overflow-hidden">
             {/* Main Content Area */}
             <motion.div
                 className="flex flex-col items-center justify-center text-center z-10"
@@ -137,7 +137,7 @@ export default function MegaFooter() {
             </motion.div>
 
             {/* System Info Row (Bottom) */}
-            <div className="absolute bottom-0 left-0 right-0 px-6 md:px-20 py-8 border-t border-white/5">
+            <div className="absolute bottom-0 left-0 right-0 px-6 md:px-20 py-6 border-t border-white/5 mt-20">
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-gray-500">
                     <span>© 2026 SAHIL.SYSTEM</span>
                     <span className="flex items-center gap-2">
