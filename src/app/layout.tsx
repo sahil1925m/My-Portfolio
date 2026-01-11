@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   description: "B.Tech CSE '27",
 };
 
+import Navbar from "@/components/Navbar";
+import Socials from "@/components/Socials";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -20,6 +23,8 @@ export default function RootLayout({
         className={`${inter.className} bg-[#0a0a0a] text-white overflow-x-hidden antialiased`}
         suppressHydrationWarning
       >
+        <Navbar />
+        <Socials />
         {children}
       </body>
     </html>

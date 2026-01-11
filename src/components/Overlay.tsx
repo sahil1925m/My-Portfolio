@@ -45,7 +45,7 @@ export default function Overlay() {
                 style={{ y: y2, opacity: opacity2 }}
                 className="sticky top-0 h-screen flex items-center justify-end px-6 md:px-32"
             >
-                <div className="max-w-xl text-right p-6 rounded-2xl bg-black/40 backdrop-blur-md md:bg-transparent md:backdrop-blur-none border border-white/10 md:border-none">
+                <div className="max-w-xl text-right">
                     <RevealText direction="up">
                         <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
                             Architecting Intelligence.
@@ -66,7 +66,7 @@ export default function Overlay() {
                 style={{ y: y3, opacity: opacity3 }}
                 className="sticky top-0 h-screen flex items-center justify-start px-6 md:px-32"
             >
-                <div className="text-left p-6 rounded-2xl bg-black/40 backdrop-blur-md md:bg-transparent md:backdrop-blur-none border border-white/10 md:border-none">
+                <div className="text-left">
                     <RevealText direction="up">
                         <h2 className="text-4xl md:text-6xl font-bold text-white mb-2">
                             The Work

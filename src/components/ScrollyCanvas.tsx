@@ -92,15 +92,25 @@ export default function ScrollyCanvas({ containerRef }: ScrollyCanvasProps) {
     useEffect(() => {
         const handleResize = () => {
             if (canvasRef.current) {
-                canvasRef.current.width = window.innerWidth;
-                canvasRef.current.height = window.innerHeight;
-                if (isLoaded) renderFrame(0);
+                // Match resolution to CSS size to prevent stretching
+                canvasRef.current.width = canvasRef.current.clientWidth;
+                canvasRef.current.height = canvasRef.current.clientHeight;
+
+                // Re-render current frame based on scroll position
+                if (isLoaded) {
+                    const currentProgress = scrollYProgress.get();
+                    const frameIndex = Math.min(
+                        FRAME_COUNT - 1,
+                        Math.floor(currentProgress * FRAME_COUNT)
+                    );
+                    renderFrame(frameIndex);
+                }
             }
         };
         window.addEventListener('resize', handleResize);
         handleResize();
         return () => window.removeEventListener('resize', handleResize);
-    }, [isLoaded]);
+    }, [isLoaded, scrollYProgress]);
 
     return (
         <div className="sticky top-0 left-0 w-full h-screen overflow-hidden z-0">
