@@ -125,7 +125,7 @@ export default function MegaFooter() {
                     {/* Download CV Button */}
                     <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
                         <Link
-                            href="/resume.pdf"
+                            href="/myresume.pdf"
                             download
                             className="flex items-center gap-3 px-8 py-4 rounded-full border border-white/20 bg-white/5 text-white text-base font-mono hover:border-white/40 hover:bg-white/10 transition-all duration-300"
                         >

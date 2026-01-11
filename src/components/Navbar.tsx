@@ -5,7 +5,14 @@ import Link from 'next/link';
 
 export default function Navbar() {
     const handleScrollTo = (id: string) => {
-        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+        const element = document.getElementById(id);
+        if (element) {
+            const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+            window.scrollTo({
+                top: elementPosition,
+                behavior: 'smooth'
+            });
+        }
     };
 
     return (
@@ -33,7 +40,7 @@ export default function Navbar() {
                     </button>
 
                     <Link
-                        href="myresume.pdf"
+                        href="/myresume.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hover:text-blue-400 transition-colors duration-300 group"

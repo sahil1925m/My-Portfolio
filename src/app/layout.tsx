@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 
 import Navbar from "@/components/Navbar";
 import Socials from "@/components/Socials";
+import ClientLayout from "@/components/ClientLayout";
 
 export default function RootLayout({
   children,
@@ -23,9 +24,11 @@ export default function RootLayout({
         className={`${inter.className} bg-[#0a0a0a] text-white overflow-x-hidden antialiased`}
         suppressHydrationWarning
       >
-        <Navbar />
-        <Socials />
-        {children}
+        <ClientLayout>
+          <Navbar />
+          <Socials />
+          {children}
+        </ClientLayout>
       </body>
     </html>
   );

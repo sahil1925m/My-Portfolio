@@ -3,6 +3,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useScroll, useMotionValueEvent } from 'framer-motion';
 import { getFrameUrl, FRAME_COUNT } from '@/utils/canvas-utils';
+import { useLoading } from '@/context/LoadingContext';
 
 interface ScrollyCanvasProps {
     containerRef: React.RefObject<HTMLDivElement | null>;
@@ -12,8 +13,8 @@ export default function ScrollyCanvas({ containerRef }: ScrollyCanvasProps) {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const [images, setImages] = useState<HTMLImageElement[]>([]);
     const [isLoaded, setIsLoaded] = useState(false);
+    const { setAssetsLoaded } = useLoading();
 
-    // 1. Preload Images
     // 1. Preload Images
     useEffect(() => {
         let loadedCount = 0;
@@ -28,6 +29,8 @@ export default function ScrollyCanvas({ containerRef }: ScrollyCanvasProps) {
                 if (loadedCount === FRAME_COUNT) {
                     setIsLoaded(true);
                     setImages(imgArray);
+                    // Signal global loading context that assets are ready
+                    setAssetsLoaded();
                 }
             };
 
@@ -39,7 +42,7 @@ export default function ScrollyCanvas({ containerRef }: ScrollyCanvasProps) {
 
             imgArray.push(img);
         }
-    }, []);
+    }, [setAssetsLoaded]);
 
     // 2. Scroll Hook
     const { scrollYProgress } = useScroll({
@@ -115,13 +118,6 @@ export default function ScrollyCanvas({ containerRef }: ScrollyCanvasProps) {
     return (
         <div className="sticky top-0 left-0 w-full h-screen overflow-hidden z-0">
             <canvas ref={canvasRef} className="block w-full h-full" />
-            {!isLoaded && (
-                <div className="absolute inset-0 flex items-center justify-center bg-[#121212] z-50">
-                    <span className="text-white/50 animate-pulse font-mono text-xs tracking-[0.2em]">
-                        INITIALIZING SAHIL.SYSTEM...
-                    </span>
-                </div>
-            )}
         </div>
     );
 }
