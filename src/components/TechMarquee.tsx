@@ -3,12 +3,12 @@
 import { motion } from 'framer-motion';
 
 const techStack = [
-    "JAVA SPRING BOOT",
-    "VIBE CODER",
-    "AI INTEGRATION",
-    "PROMPT ENGINEER",
-    "JAVA",
-    "NEXT.JS 14"
+    "AGENTIC WORKFLOWS",
+    "GOOGLE ANTIGRAVITY",
+    "CLAUDE 4.5 OPUS",
+    "CURSOR COMPOSER",
+    "GENERATIVE UI",
+    "NEXT.JS 15"
 ];
 
 export default function TechMarquee() {

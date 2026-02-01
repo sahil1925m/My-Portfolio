@@ -123,8 +123,8 @@ export default function AboutBento() {
                                 </span>
                                 <span className="font-mono text-green-400 text-xs">AVAILABLE</span>
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-1">Open for Internships</h3>
-                            <p className="text-gray-400 text-xs">Targeting Google & Puma</p>
+                            <h3 className="text-xl font-bold text-white mb-1">Status: Available</h3>
+                            <p className="text-gray-400 text-xs">For Vibe Coding & Agentic Contracts</p>
                         </div>
                     </motion.div>
 
@@ -142,17 +142,17 @@ export default function AboutBento() {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
 
                         <div className="absolute bottom-6 left-6 z-10">
-                            <h3 className="text-gray-400 font-mono text-xs tracking-widest mb-3">THE STACK</h3>
-                            <div className="flex flex-wrap gap-2">
-                                <span className="flex items-center gap-1 text-sm bg-white/10 border border-white/20 px-2 py-1 rounded text-gray-200">
-                                    <SiSpringboot className="text-green-500" /> Spring
-                                </span>
-                                <span className="flex items-center gap-1 text-sm bg-white/10 border border-white/20 px-2 py-1 rounded text-gray-200">
-                                    <SiNextdotjs className="text-white" /> Next.js
-                                </span>
-                                <span className="flex items-center gap-1 text-sm bg-white/10 border border-white/20 px-2 py-1 rounded text-gray-200">
-                                    AI
-                                </span>
+                            <h3 className="text-gray-400 font-mono text-xs tracking-widest mb-3">THE ARSENAL</h3>
+                            <div className="flex flex-col gap-2 text-xs text-gray-300">
+                                <div>
+                                    <span className="text-blue-400 font-bold">Orchestration:</span> Google Antigravity, Cursor, Lovable.
+                                </div>
+                                <div>
+                                    <span className="text-purple-400 font-bold">Intelligence:</span> Claude 4.5 Opus, Gemini 3, o1.
+                                </div>
+                                <div>
+                                    <span className="text-green-400 font-bold">Core:</span> React, Tailwind, Supabase, FastAPI.
+                                </div>
                             </div>
                         </div>
                     </motion.div>

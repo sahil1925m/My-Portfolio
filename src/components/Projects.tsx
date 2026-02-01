@@ -5,9 +5,9 @@ import { ProjectCard } from '@/components/ui/project-card';
 const projects = [
     {
         title: "AstroQuest",
-        category: "Space Exploration Web App",
-        desc: "An immersive journey through the cosmos built with modern web tech. Explore planets, stars, and galaxies in stunning 3D.",
-        tech: ["Next.js", "WebGL", "NASA API"],
+        category: "Spatial AI Explorer",
+        desc: "Built with Gemini Pro and Three.js. Features voice-driven navigation and structured JSON output for hallucination-free education.",
+        tech: ["Next.js", "Three.js", "Gemini Pro"],
         link: "https://astroquest.vercel.app/",
         isLive: true,
         image: "/astroquest.png",
@@ -15,9 +15,9 @@ const projects = [
     },
     {
         title: "F.A.C.E.S.",
-        category: "AI Forensic Artist",
-        desc: "Forensic Artificial Composite Engine System. Generates suspect sketches via AI using natural language descriptions.",
-        tech: ["Python", "AI/ML", "React"],
+        category: "Generative Forensic Tool",
+        desc: "Reduces suspect ID time by 99%. Powered by Segment Anything Model (SAM) and Diffusion pipelines for surgical image editing.",
+        tech: ["Python", "Diffusion Models", "SAM"],
         link: "https://aiforensicartist.vercel.app/",
         isLive: true,
         image: "/faces.png",
@@ -35,9 +35,9 @@ const projects = [
     },
     {
         title: "Artisan Crochet",
-        category: "Full-Stack E-Commerce",
-        desc: "A high-performance digital storefront for handcrafted goods. Features responsive catalog and dynamic cart management.",
-        tech: ["Next.js", "React", "Tailwind CSS", "Vercel"],
+        category: "Agentic E-Commerce Build",
+        desc: "Architected in <12 Hours using Claude 4.5 Opus for backend logic and Antigravity Agents for frontend component generation.",
+        tech: ["Next.js", "Claude Opus", "Antigravity"],
         link: "https://crochet-shop-eight.vercel.app/",
         isLive: true,
         image: "/crochet.png",

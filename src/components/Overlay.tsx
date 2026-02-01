@@ -61,14 +61,14 @@ export default function Overlay() {
                 <div className="max-w-xl text-right">
                     <RevealText direction="up">
                         <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                            Architecting Intelligence.
+                            Building at the Speed of Thought.
                         </h2>
                     </RevealText>
                     <RevealText direction="up" delay={200}>
                         <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-                            Specializing in <span className="text-blue-400">Java Spring Boot</span> backends
-                            fused with modern AI integrations. Bridging the gap between
-                            Theory of Computation and real-world application.
+                            I am an <span className="text-blue-400">AI-Native Architect</span> and Vibe Coder.
+                            I orchestrate autonomous agents (Claude 4.5, Gemini 3) to build production-grade
+                            full-stack applications in hours, not weeks.
                         </p>
                     </RevealText>
                 </div>
