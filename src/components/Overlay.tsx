@@ -37,7 +37,7 @@ export default function Overlay() {
                     <>
                         <TypingAnimation
                             text="SAHIL"
-                            className="text-5xl md:text-9xl font-bold tracking-tighter text-white mix-blend-difference hover-text-effect pointer-events-auto"
+                            className="text-5xl md:text-9xl font-bold tracking-tighter text-white mix-blend-difference pointer-events-auto"
                             duration={150}
                             delay={300}
                         />
@@ -60,7 +60,7 @@ export default function Overlay() {
             >
                 <div className="max-w-xl text-right">
                     <RevealText direction="up">
-                        <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 hover-text-effect pointer-events-auto inline-block">
+                        <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 pointer-events-auto inline-block">
                             Building at the Speed of Thought.
                         </h2>
                     </RevealText>
