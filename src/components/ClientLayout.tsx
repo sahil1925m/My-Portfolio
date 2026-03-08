@@ -2,6 +2,8 @@
 
 import { LoadingProvider } from "@/context/LoadingContext";
 import LoadingScreen from "@/components/LoadingScreen";
+import SmoothScroll from "@/components/SmoothScroll";
+import CustomCursor from "@/components/CustomCursor";
 
 export default function ClientLayout({
     children,
@@ -10,6 +12,8 @@ export default function ClientLayout({
 }) {
     return (
         <LoadingProvider>
+            <SmoothScroll />
+            <CustomCursor />
             <LoadingScreen />
             {children}
         </LoadingProvider>

@@ -56,44 +56,76 @@ export default function MegaFooter() {
         },
     };
 
+    const letterVariants = {
+        hidden: { opacity: 0, y: 120, rotateX: -80, filter: 'blur(10px)' },
+        visible: {
+            opacity: 1,
+            y: 0,
+            rotateX: 0,
+            filter: 'blur(0px)',
+            transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] as const },
+        },
+    };
+
     const buttonVariants = {
         hover: { scale: 1.05, y: -3 },
         tap: { scale: 0.98 },
     };
 
     return (
-        <footer id="contact" className="relative min-h-[90vh] w-full bg-[#050505] flex flex-col items-center justify-center px-6 md:px-20 pb-24 overflow-hidden">
+        <footer id="contact" className="relative min-h-screen w-full bg-[#050505] flex flex-col items-center justify-center px-4 md:px-20 pb-16 md:pb-24 overflow-hidden">
             {/* Main Content Area */}
             <motion.div
-                className="flex flex-col items-center justify-center text-center z-10"
+                className="flex flex-col items-center justify-center text-center z-10 w-full"
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-100px" }}
             >
                 {/* Massive Headline */}
-                <div className="overflow-hidden">
-                    <motion.h2
-                        variants={wordVariants}
-                        className="text-[15vw] md:text-[12vw] font-black leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-white"
-                        style={{ WebkitTextStroke: '1px rgba(255,255,255,0.1)' }}
-                    >
-                        LET'S
-                    </motion.h2>
-                </div>
-                <div className="overflow-hidden">
-                    <motion.h2
-                        variants={wordVariants}
-                        className="text-[15vw] md:text-[12vw] font-black leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-500 to-purple-500"
-                    >
-                        BUILD.
-                    </motion.h2>
-                </div>
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
+                    className="flex flex-wrap justify-center overflow-hidden mb-2 md:mb-8"
+                    style={{ perspective: '1000px' }}
+                >
+                    {"LET'S".split('').map((char, index) => (
+                        <motion.span
+                            key={index}
+                            variants={letterVariants}
+                            className="text-[17vw] md:text-[15vw] font-black leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-white hover-text-effect pointer-events-auto inline-block"
+                            style={{ WebkitTextStroke: '2px rgba(255,255,255,0.1)', transformOrigin: '50% 100%' }}
+                        >
+                            {char}
+                        </motion.span>
+                    ))}
+                </motion.div>
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={{ visible: { transition: { staggerChildren: 0.1, delayChildren: 0.5 } } }}
+                    className="flex flex-wrap justify-center overflow-hidden mb-8 md:mb-24"
+                    style={{ perspective: '1000px' }}
+                >
+                    {"BUILD.".split('').map((char, index) => (
+                        <motion.span
+                            key={index}
+                            variants={letterVariants}
+                            className="text-[17vw] md:text-[15vw] font-black leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-500 to-purple-500 hover-text-effect pointer-events-auto inline-block"
+                            style={{ transformOrigin: '50% 100%' }}
+                        >
+                            {char}
+                        </motion.span>
+                    ))}
+                </motion.div>
 
                 {/* Action Dock (Buttons) */}
                 <motion.div
                     variants={wordVariants}
-                    className="flex flex-wrap justify-center gap-4 mt-12 md:mt-16"
+                    className="flex flex-wrap justify-center gap-4 md:gap-8 mt-6 md:mt-24"
                 >
                     {/* Copy Email Button */}
                     <motion.button
@@ -101,12 +133,12 @@ export default function MegaFooter() {
                         variants={buttonVariants}
                         whileHover="hover"
                         whileTap="tap"
-                        className={`flex items-center gap-3 px-8 py-4 rounded-full border text-base font-mono transition-all duration-300 ${copied
+                        className={`flex items-center gap-4 px-10 py-5 rounded-full border text-lg font-mono transition-all duration-300 ${copied
                             ? 'border-green-500/50 bg-green-500/10 text-green-400'
                             : 'border-white/20 bg-white/5 text-white hover:border-white/40 hover:bg-white/10'
                             }`}
                     >
-                        {copied ? <FiCheck className="text-xl" /> : <FiCopy className="text-xl" />}
+                        {copied ? <FiCheck className="text-2xl" /> : <FiCopy className="text-2xl" />}
                         {copied ? 'COPIED!' : 'COPY EMAIL'}
                     </motion.button>
 
@@ -115,9 +147,9 @@ export default function MegaFooter() {
                         <Link
                             href="https://www.linkedin.com/in/sahil-rajak-1b24072b2"
                             target="_blank"
-                            className="flex items-center gap-3 px-8 py-4 rounded-full border border-blue-500/30 bg-blue-500/5 text-blue-400 text-base font-mono hover:border-blue-400 hover:bg-blue-500/10 transition-all duration-300"
+                            className="flex items-center gap-4 px-10 py-5 rounded-full border border-blue-500/30 bg-blue-500/5 text-blue-400 text-lg font-mono hover:border-blue-400 hover:bg-blue-500/10 transition-all duration-300"
                         >
-                            <FiLinkedin className="text-xl" />
+                            <FiLinkedin className="text-2xl" />
                             LINKEDIN
                         </Link>
                     </motion.div>
@@ -127,9 +159,9 @@ export default function MegaFooter() {
                         <Link
                             href="/myresume.pdf"
                             download
-                            className="flex items-center gap-3 px-8 py-4 rounded-full border border-white/20 bg-white/5 text-white text-base font-mono hover:border-white/40 hover:bg-white/10 transition-all duration-300"
+                            className="flex items-center gap-4 px-10 py-5 rounded-full border border-white/20 bg-white/5 text-white text-lg font-mono hover:border-white/40 hover:bg-white/10 transition-all duration-300"
                         >
-                            <FiDownload className="text-xl" />
+                            <FiDownload className="text-2xl" />
                             DOWNLOAD CV
                         </Link>
                     </motion.div>
@@ -137,10 +169,10 @@ export default function MegaFooter() {
             </motion.div>
 
             {/* System Info Row (Bottom) */}
-            <div className="absolute bottom-0 left-0 right-0 px-6 md:px-20 py-6 border-t border-white/5 mt-20">
-                <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-gray-500">
+            <div className="absolute bottom-0 left-0 right-0 px-4 md:px-20 py-5 md:py-8 border-t border-white/5">
+                <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-sm font-mono text-gray-500">
                     <span>© 2026 SAHIL.SYSTEM</span>
-                    <span className="flex items-center gap-2">
+                    <span className="flex items-center gap-3">
                         LOCAL TIME:
                         <span className="text-white/80">{time}</span>
                     </span>

@@ -33,29 +33,42 @@ export default function Navbar() {
                 <div className="hidden md:flex gap-8">
                     <button
                         onClick={() => handleScrollTo('projects')}
-                        className="hover:text-blue-400 transition-colors duration-300 group"
+                        className="group relative flex flex-col items-center justify-center overflow-hidden h-6 px-1 no-cursor-invert"
                     >
-                        <span className="text-gray-600 mr-1 group-hover:text-blue-500 transition-colors duration-300">//</span>
-                        WORK
+                        <div className="flex items-center group-hover:-translate-y-[150%] transition-transform duration-300 ease-[cubic-bezier(0.76,0,0.24,1)]">
+                            <span className="text-gray-600 mr-1 transition-colors duration-300 group-hover:text-blue-500">//</span>
+                            <span className="transition-colors duration-300 group-hover:text-blue-400">WORK</span>
+                        </div>
+                        <div className="flex items-center absolute translate-y-[150%] group-hover:translate-y-0 text-blue-400 transition-transform duration-300 ease-[cubic-bezier(0.76,0,0.24,1)]">
+                            <span className="text-blue-500/50 mr-1">//</span>
+                            <span>WORK</span>
+                        </div>
                     </button>
 
                     <Link
                         href="/myresume.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-blue-400 transition-colors duration-300 group"
+                        className="group relative flex flex-col items-center justify-center overflow-hidden h-6 px-1 no-cursor-invert"
                     >
-                        <span className="text-gray-600 mr-1 group-hover:text-blue-500 transition-colors duration-300">//</span>
-                        RESUME
+                        <div className="flex items-center group-hover:-translate-y-[150%] transition-transform duration-300 ease-[cubic-bezier(0.76,0,0.24,1)]">
+                            <span className="text-gray-600 mr-1 transition-colors duration-300 group-hover:text-blue-500">//</span>
+                            <span className="transition-colors duration-300 group-hover:text-blue-400">RESUME</span>
+                        </div>
+                        <div className="flex items-center absolute translate-y-[150%] group-hover:translate-y-0 text-blue-400 transition-transform duration-300 ease-[cubic-bezier(0.76,0,0.24,1)]">
+                            <span className="text-blue-500/50 mr-1">//</span>
+                            <span>RESUME</span>
+                        </div>
                     </Link>
                 </div>
 
                 {/* Connect Button */}
                 <button
                     onClick={() => handleScrollTo('contact')}
-                    className="px-5 py-2 border border-white/20 rounded-full hover:bg-white hover:text-black transition-all duration-300 ease-out"
+                    className="group relative px-6 py-2 border border-white/20 rounded-full overflow-hidden transition-colors duration-300 ease-out hover:border-transparent no-cursor-invert"
                 >
-                    Connect
+                    <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-blue-600 to-indigo-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-[cubic-bezier(0.76,0,0.24,1)] z-0"></span>
+                    <span className="relative z-10 text-gray-300 group-hover:text-white transition-colors duration-300">Connect</span>
                 </button>
             </div>
         </motion.nav>

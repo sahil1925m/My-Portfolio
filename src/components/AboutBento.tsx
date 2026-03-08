@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { FiMapPin, FiBriefcase, FiMail, FiCpu, FiCamera, FiBookOpen, FiCopy, FiCheck } from 'react-icons/fi';
 import { SiSpringboot, SiNextdotjs } from 'react-icons/si';
 
@@ -35,36 +35,35 @@ export default function AboutBento() {
         setTimeout(() => setCopied(false), 2000);
     };
 
-    // Stagger Animation Variants
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1,
-            },
-        },
-    };
+    // Scroll Tracking Setup
+    const containerRef = useRef<HTMLElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start 90%", "center center"] // Start animation when top of container hits 90% of screen, end when center hits center
+    });
 
-    const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0 },
-    };
+    // Detect mobile to reduce strong offsets that clip on narrow screens
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    const offset = isMobile ? 60 : 200;
+    const offsetY = isMobile ? 60 : 200;
+
+    // Map scroll progress to physical positions
+    const xLeft = useTransform(scrollYProgress, [0, 1], [-offset, 0]);
+    const xRight = useTransform(scrollYProgress, [0, 1], [offset, 0]);
+    const yUp = useTransform(scrollYProgress, [0, 1], [offsetY, 0]);
+
+    // Map visual effects
+    const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
+    const blur = useTransform(scrollYProgress, [0, 1], [8, 0]);
 
     return (
-        <section className="relative z-20 w-full py-20 px-6 md:px-20 bg-[#050505]">
+        <section ref={containerRef} className="relative z-20 w-full py-20 px-6 md:px-20 bg-[#050505] overflow-hidden overflow-x-clip">
             <div className="max-w-4xl mx-auto">
-                <motion.div
-                    className="grid grid-cols-1 md:grid-cols-3 gap-4"
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
-                >
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     {/* TILE A: Location Command Center (Span 2) */}
                     <motion.div
-                        variants={itemVariants}
-                        className="md:col-span-2 relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md h-64 group"
+                        style={{ x: xLeft, opacity, filter: `blur(${blur}px)` }}
+                        className="md:col-span-2 relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md h-64 group will-change-transform"
                     >
                         {/* Map Background */}
                         <div
@@ -99,9 +98,9 @@ export default function AboutBento() {
 
                     {/* TILE B: Open for Work (Span 1) */}
                     <motion.div
-                        variants={itemVariants}
+                        style={{ x: xRight, opacity, filter: `blur(${blur}px)` }}
                         onClick={handleCopyEmail}
-                        className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md h-64 cursor-pointer group hover:-translate-y-1 transition-all duration-300"
+                        className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md h-64 cursor-pointer group hover:-translate-y-1 transition-all duration-300 will-change-transform"
                     >
                         {/* Background Image */}
                         <div
@@ -130,8 +129,8 @@ export default function AboutBento() {
 
                     {/* TILE C: The Tech Stack (Span 1) */}
                     <motion.div
-                        variants={itemVariants}
-                        className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-[#0a0a2e] to-[#1a0b2e] h-64 group hover:-translate-y-1 transition-transform duration-300"
+                        style={{ x: xLeft, opacity, filter: `blur(${blur}px)` }}
+                        className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-[#0a0a2e] to-[#1a0b2e] h-64 group hover:-translate-y-1 transition-transform duration-300 will-change-transform"
                     >
                         {/* Background Image */}
                         <div
@@ -159,8 +158,8 @@ export default function AboutBento() {
 
                     {/* TILE D: The Hobby (Span 1) */}
                     <motion.div
-                        variants={itemVariants}
-                        className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md h-64 group cursor-pointer"
+                        style={{ y: yUp, opacity, filter: `blur(${blur}px)` }}
+                        className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md h-64 group cursor-pointer will-change-transform"
                     >
                         <div
                             className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
@@ -180,8 +179,8 @@ export default function AboutBento() {
 
                     {/* TILE E: Education (Span 1) */}
                     <motion.div
-                        variants={itemVariants}
-                        className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md h-64 group hover:-translate-y-1 transition-all duration-300"
+                        style={{ x: xRight, opacity, filter: `blur(${blur}px)` }}
+                        className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md h-64 group hover:-translate-y-1 transition-all duration-300 will-change-transform"
                     >
                         {/* Background Image */}
                         <div
@@ -198,7 +197,7 @@ export default function AboutBento() {
                         </div>
                     </motion.div>
 
-                </motion.div>
+                </div>
             </div>
         </section>
     );
