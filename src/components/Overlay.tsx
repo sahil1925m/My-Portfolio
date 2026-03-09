@@ -2,6 +2,7 @@
 
 import { TypingAnimation } from '@/components/ui/typing-animation';
 import RevealText from '@/components/RevealText';
+import { BlurFade } from '@/components/ui/blur-fade';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { useLoading } from '@/context/LoadingContext';
@@ -43,7 +44,7 @@ export default function Overlay() {
                         />
                         <TypingAnimation
                             text="CREATIVE DEVELOPER"
-                            className="mt-4 text-xl md:text-2xl text-white/70 font-light tracking-widest"
+                            className="mt-4 text-xl md:text-2xl text-white/70 font-light tracking-widest pointer-events-auto"
                             duration={80}
                             delay={1200}
                             loop={true}
@@ -65,11 +66,11 @@ export default function Overlay() {
                         </h2>
                     </RevealText>
                     <RevealText direction="up" delay={200}>
-                        <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+                        <BlurFade delay={0.2} staggerDelay={0.05} className="text-lg md:text-xl text-gray-300 leading-relaxed pointer-events-auto inline-block">
                             I am an <span className="text-blue-400">AI-Native Architect</span> and Vibe Coder.
                             I orchestrate autonomous agents (Claude 4.5, Gemini 3) to build production-grade
                             full-stack applications in hours, not weeks.
-                        </p>
+                        </BlurFade>
                     </RevealText>
                 </div>
             </motion.div>
@@ -81,14 +82,14 @@ export default function Overlay() {
             >
                 <div className="text-left">
                     <RevealText direction="up">
-                        <h2 className="text-4xl md:text-6xl font-bold text-white mb-2">
+                        <h2 className="text-4xl md:text-6xl font-bold text-white mb-2 pointer-events-auto inline-block">
                             The Work
                         </h2>
                     </RevealText>
                     <RevealText direction="up" delay={200}>
-                        <p className="text-2xl text-gray-400">
+                        <BlurFade delay={0.2} staggerDelay={0.08} className="text-2xl text-gray-400 pointer-events-auto inline-block mt-2">
                             AstroQuest. F.A.C.E.S. DayStream.
-                        </p>
+                        </BlurFade>
                     </RevealText>
                 </div>
             </motion.div>

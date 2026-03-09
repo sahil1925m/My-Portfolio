@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiCopy, FiCheck, FiLinkedin, FiDownload } from 'react-icons/fi';
 import Link from 'next/link';
+import { PremiumMagneticButton } from './ui/premium-magnetic-button';
 
 export default function MegaFooter() {
     const [copied, setCopied] = useState(false);
@@ -122,49 +123,39 @@ export default function MegaFooter() {
                     ))}
                 </motion.div>
 
-                {/* Action Dock (Buttons) */}
+                {/* Elegant Action Dock (Buttons) */}
                 <motion.div
                     variants={wordVariants}
-                    className="flex flex-wrap justify-center gap-4 md:gap-8 mt-6 md:mt-24"
+                    className="flex flex-col md:flex-row flex-wrap justify-center items-center gap-6 md:gap-12 mt-6 md:mt-24 w-full px-4"
                 >
                     {/* Copy Email Button */}
-                    <motion.button
+                    <PremiumMagneticButton
                         onClick={handleCopyEmail}
-                        variants={buttonVariants}
-                        whileHover="hover"
-                        whileTap="tap"
-                        className={`flex items-center gap-4 px-10 py-5 rounded-full border text-lg font-mono transition-all duration-300 ${copied
-                            ? 'border-green-500/50 bg-green-500/10 text-green-400'
-                            : 'border-white/20 bg-white/5 text-white hover:border-white/40 hover:bg-white/10'
-                            }`}
+                        className={copied ? "!border-green-500/50 !text-green-400" : ""}
                     >
-                        {copied ? <FiCheck className="text-2xl" /> : <FiCopy className="text-2xl" />}
+                        {copied ? <FiCheck size={20} /> : <FiCopy size={20} />}
                         {copied ? 'COPIED!' : 'COPY EMAIL'}
-                    </motion.button>
+                    </PremiumMagneticButton>
 
                     {/* LinkedIn Button */}
-                    <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
-                        <Link
-                            href="https://www.linkedin.com/in/sahil-rajak-1b24072b2"
-                            target="_blank"
-                            className="flex items-center gap-4 px-10 py-5 rounded-full border border-blue-500/30 bg-blue-500/5 text-blue-400 text-lg font-mono hover:border-blue-400 hover:bg-blue-500/10 transition-all duration-300"
-                        >
-                            <FiLinkedin className="text-2xl" />
-                            LINKEDIN
-                        </Link>
-                    </motion.div>
+                    <PremiumMagneticButton
+                        as={Link}
+                        href="https://www.linkedin.com/in/sahil-rajak-1b24072b2"
+                        target="_blank"
+                    >
+                        <FiLinkedin size={20} />
+                        LINKEDIN
+                    </PremiumMagneticButton>
 
                     {/* Download CV Button */}
-                    <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
-                        <Link
-                            href="/myresume.pdf"
-                            download
-                            className="flex items-center gap-4 px-10 py-5 rounded-full border border-white/20 bg-white/5 text-white text-lg font-mono hover:border-white/40 hover:bg-white/10 transition-all duration-300"
-                        >
-                            <FiDownload className="text-2xl" />
-                            DOWNLOAD CV
-                        </Link>
-                    </motion.div>
+                    <PremiumMagneticButton
+                        as={Link}
+                        href="/myresume.pdf"
+                        download
+                    >
+                        <FiDownload size={20} />
+                        DOWNLOAD CV
+                    </PremiumMagneticButton>
                 </motion.div>
             </motion.div>
 

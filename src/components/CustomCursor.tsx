@@ -18,18 +18,23 @@ export default function CustomCursor() {
 
             const isNoInvert = target.closest('.no-cursor-invert') || target.classList.contains('no-cursor-invert');
 
-            // Only trigger inversion on elements explicitly marked with hover-text-effect
-            if (!isNoInvert && (target.closest('.hover-text-effect') || target.classList.contains('hover-text-effect'))) {
+            const textSelectors = 'p, h1, h2, h3, h4, h5, h6, span, label, li, strong, em, b, i';
+            const isTextElement = target.closest(textSelectors) || target.classList.contains('hover-text-effect') || target.closest('.hover-text-effect');
+
+            // Only trigger inversion on elements explicitly marked with hover-text-effect or standard text elements
+            if (!isNoInvert && isTextElement) {
                 setIsTextHovering(true);
                 setIsHovering(false);
             }
             // Check if hovering over standard interactive elements
             else if (
-                target.tagName.toLowerCase() === 'a' ||
-                target.tagName.toLowerCase() === 'button' ||
-                target.closest('a') ||
-                target.closest('button') ||
-                target.closest('.interactive')
+                !isNoInvert && (
+                    target.tagName.toLowerCase() === 'a' ||
+                    target.tagName.toLowerCase() === 'button' ||
+                    target.closest('a') ||
+                    target.closest('button') ||
+                    target.closest('.interactive')
+                )
             ) {
                 setIsHovering(true);
                 setIsTextHovering(false);

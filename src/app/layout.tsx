@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 
 export const metadata: Metadata = {
   title: "Sahil | Portfolio",
@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} bg-[#0a0a0a] text-white overflow-x-hidden antialiased`}
+        className={`${inter.variable} font-sans bg-[#0a0a0a] text-white overflow-x-hidden antialiased tracking-tight`}
         suppressHydrationWarning
       >
         <ClientLayout>
