@@ -150,7 +150,7 @@ export default function MegaFooter() {
                     {/* Download CV Button */}
                     <PremiumMagneticButton
                         as={Link}
-                        href="/myresume.pdf"
+                        href="/Sahil_Java_Developer.pdf"
                         download
                     >
                         <FiDownload size={20} />

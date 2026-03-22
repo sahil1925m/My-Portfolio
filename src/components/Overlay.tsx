@@ -47,8 +47,7 @@ export default function Overlay() {
                             className="mt-4 text-xl md:text-2xl text-white/70 font-light tracking-widest pointer-events-auto"
                             duration={80}
                             delay={1200}
-                            loop={true}
-                            loopDelay={3000}
+                            loop={false}
                         />
                     </>
                 )}
@@ -59,17 +58,15 @@ export default function Overlay() {
                 style={{ y: y2, opacity: opacity2 }}
                 className="sticky top-0 h-screen flex items-center justify-end px-6 md:px-32"
             >
-                <div className="max-w-xl text-right">
+                <div className="max-w-xl text-right flex flex-col items-end">
                     <RevealText direction="up">
-                        <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 pointer-events-auto inline-block">
-                            Building at the Speed of Thought.
+                        <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 pointer-events-auto inline-block text-right">
+                            Full Stack Developer
                         </h2>
                     </RevealText>
                     <RevealText direction="up" delay={200}>
-                        <BlurFade delay={0.2} staggerDelay={0.05} className="text-lg md:text-xl text-gray-300 leading-relaxed pointer-events-auto inline-block">
-                            I am an <span className="text-blue-400">AI-Native Architect</span> and Vibe Coder.
-                            I orchestrate autonomous agents (Claude 4.5, Gemini 3) to build production-grade
-                            full-stack applications in hours, not weeks.
+                        <BlurFade delay={0.2} staggerDelay={0.05} className="text-lg md:text-xl text-gray-300 leading-relaxed pointer-events-auto inline-block text-right">
+                            Architecting logic-driven web applications with <span className="text-blue-400">Java</span> and <span className="text-green-400">Spring Boot</span>. Focused on performance and seamless deployment for institutional and freelance projects.
                         </BlurFade>
                     </RevealText>
                 </div>
@@ -80,15 +77,15 @@ export default function Overlay() {
                 style={{ y: y3, opacity: opacity3 }}
                 className="sticky top-0 h-screen flex items-center justify-start px-6 md:px-32"
             >
-                <div className="text-left">
+                <div className="max-w-xl text-left">
                     <RevealText direction="up">
                         <h2 className="text-4xl md:text-6xl font-bold text-white mb-2 pointer-events-auto inline-block">
-                            The Work
+                            Projects
                         </h2>
                     </RevealText>
                     <RevealText direction="up" delay={200}>
-                        <BlurFade delay={0.2} staggerDelay={0.08} className="text-2xl text-gray-400 pointer-events-auto inline-block mt-2">
-                            AstroQuest. F.A.C.E.S. DayStream.
+                        <BlurFade delay={0.2} staggerDelay={0.08} className="text-xl md:text-2xl text-gray-400 pointer-events-auto inline-block mt-2">
+                            Official College Website. Freelance Commercial App. AI Forensic Artist. Valentine Specials.
                         </BlurFade>
                     </RevealText>
                 </div>

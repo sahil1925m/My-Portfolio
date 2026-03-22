@@ -122,8 +122,8 @@ export default function AboutBento() {
                                 </span>
                                 <span className="font-mono text-green-400 text-xs">AVAILABLE</span>
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-1">Status: Available</h3>
-                            <p className="text-gray-400 text-xs">For Vibe Coding & Agentic Contracts</p>
+                            <h3 className="text-xl font-bold text-white mb-1">Status: Open to Work</h3>
+                            <p className="text-gray-400 text-xs">For Backend & Full-Stack Roles</p>
                         </div>
                     </motion.div>
 
@@ -142,15 +142,21 @@ export default function AboutBento() {
 
                         <div className="absolute bottom-6 left-6 z-10">
                             <h3 className="text-gray-400 font-mono text-xs tracking-widest mb-3">THE ARSENAL</h3>
-                            <div className="flex flex-col gap-2 text-xs text-gray-300">
+                            <div className="flex flex-col gap-1.5 text-[10px] sm:text-xs text-gray-300">
                                 <div>
-                                    <span className="text-blue-400 font-bold">Orchestration:</span> Google Antigravity, Cursor, Lovable.
+                                    <span className="text-blue-400 font-bold">Backend & Core Logic:</span> Java, Spring Boot, OOP.
                                 </div>
                                 <div>
-                                    <span className="text-purple-400 font-bold">Intelligence:</span> Claude 4.5 Opus, Gemini 3, o1.
+                                    <span className="text-green-400 font-bold">CS Fundamentals:</span> DSA, CN, DBMS.
                                 </div>
                                 <div>
-                                    <span className="text-green-400 font-bold">Core:</span> React, Tailwind, Supabase, FastAPI.
+                                    <span className="text-purple-400 font-bold">Frontend (AI-Assisted):</span> Next.js, React, HTML5, CSS3, Framer Motion.
+                                </div>
+                                <div>
+                                    <span className="text-orange-400 font-bold">Tools & Cloud:</span> AI Prompting, Vercel, Git/GitHub.
+                                </div>
+                                <div>
+                                    <span className="text-gray-400 font-bold">Familiar With:</span> C, C++, Python.
                                 </div>
                             </div>
                         </div>

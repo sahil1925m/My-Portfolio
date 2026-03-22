@@ -5,12 +5,12 @@ import { useRef } from 'react';
 import { wrap } from '@motionone/utils';
 
 const techStack = [
-    "AGENTIC WORKFLOWS",
-    "GOOGLE ANTIGRAVITY",
-    "CLAUDE 4.5 OPUS",
-    "CURSOR COMPOSER",
-    "GENERATIVE UI",
-    "NEXT.JS 15"
+    "JAVA",
+    "SPRING BOOT",
+    "DATA STRUCTURES & ALGORITHMS",
+    "SYSTEM ARCHITECTURE",
+    "REST APIS",
+    "NEXT.JS"
 ];
 
 export default function TechMarquee() {

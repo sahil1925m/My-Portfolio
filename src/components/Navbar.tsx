@@ -46,7 +46,7 @@ export default function Navbar() {
                     </button>
 
                     <Link
-                        href="/myresume.pdf"
+                        href="/Sahil_Java_Developer.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="group relative flex flex-col items-center justify-center overflow-hidden h-6 px-1 no-cursor-invert"
