@@ -2,7 +2,6 @@
 
 import { useState, useRef, MouseEvent } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { ArrowUpRight, Rocket, Brain, Calendar, ShoppingBag } from 'lucide-react';
 
@@ -73,7 +72,7 @@ export function ProjectCard({
     };
 
     return (
-        <Link href={link} target="_blank" rel="noopener noreferrer" className="block w-full h-full hover-text-effect cursor-none">
+        <a href={link} target="_blank" rel="noopener noreferrer" className="block w-full h-full hover-text-effect cursor-pointer">
             <motion.div
                 ref={boundingRef}
                 style={{
@@ -192,6 +191,6 @@ export function ProjectCard({
                     </motion.div>
                 </div>
             </motion.div>
-        </Link>
+        </a>
     );
 }
